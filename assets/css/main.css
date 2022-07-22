@@ -87,24 +87,29 @@ body{
 
 .order__navbar .order__btnquick li{
   border-radius: 15px;
+  background-color: #B0E0E6;
   padding: 4px 8px 4px 8px;
-  border: 1px solid #525760;
+
 }
 
 .order__navbar .order__btnquick li a{
     font-size: 14px;
+    font-weight: bold;
 }
 /* css order menu */
 .order__Menu{
     width: 100%;
+    height: 570px;
     padding: 8px;
+    margin-top: 8px;
     border-radius: 6px;
-    border: 1px solid #525760;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow-y: auto;
 }
 /* search form css*/
 
 .order__Menu .order__search{
-    border: 1px solid #525760;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     border-radius: 15px;
     padding: 4px;
 }
@@ -133,9 +138,10 @@ body{
     height: 56px;
     display: flex;
     padding: 4px;
-    border: 1px solid #525760;
+    /* border: 1px solid #525760; */
     border-radius: 8px;
     margin-bottom: 8px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .order__coffee .order__box .box__item img{
