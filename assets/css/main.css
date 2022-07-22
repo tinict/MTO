@@ -135,13 +135,39 @@ body{
     padding: 4px;
     border: 1px solid #525760;
     border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.order__coffee .order__box .box__item img{
+    width: 56px;
+    border-radius: 5px;
 }
 
 .box__contents{
     width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .box__contents .content__container .order__cost{
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.box__contents .content__container .order__cost .money-item{
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #FF4500;
+}
+
+.groupButton {
+    padding-top: 1px;
+}
+
+.fa-square-minus, .fa-square-plus{
+    font-size: 20px;
+    color: #FF4500;
 }
