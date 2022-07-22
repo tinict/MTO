@@ -97,14 +97,16 @@ body{
 /* css order menu */
 .order__Menu{
     width: 100%;
-    padding: 8px
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #525760;
 }
 /* search form css*/
 
 .order__Menu .order__search{
     border: 1px solid #525760;
     border-radius: 15px;
-    padding: 6px;
+    padding: 4px;
 }
 
 .order__Menu .order__search input{
@@ -113,4 +115,33 @@ body{
     offset: 0;
     outline: 0;
     font-size: 15px;
+}
+
+/* css order coffee */
+
+.order__Menu .order__coffee{
+    width: 100%;
+    padding: 6px;
+}
+
+.order__coffee .order__box{
+    width: 100%;
+}
+
+.order__coffee .order__box .box__item{
+    width: 100%;
+    height: 56px;
+    display: flex;
+    padding: 4px;
+    border: 1px solid #525760;
+    border-radius: 8px;
+}
+
+.box__contents{
+    width: 100%;
+}
+
+.box__contents .content__container .order__cost{
+    width: 100%;
+    display: flex;
 }
