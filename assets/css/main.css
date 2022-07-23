@@ -89,7 +89,7 @@ body{
   border-radius: 15px;
   background-color: #B0E0E6;
   padding: 4px 8px 4px 8px;
-
+  cursor: pointer;
 }
 
 .order__navbar .order__btnquick li a{
@@ -122,29 +122,28 @@ body{
     font-size: 15px;
 }
 
-/* css order coffee */
+/* css order box*/
 
-.order__Menu .order__coffee{
+.order__Menu .box{
     width: 100%;
     padding: 6px;
 }
 
-.order__coffee .order__box{
+.box .order__box{
     width: 100%;
 }
 
-.order__coffee .order__box .box__item{
+.box .order__box .box__item{
     width: 100%;
     height: 56px;
     display: flex;
     padding: 4px;
-    /* border: 1px solid #525760; */
     border-radius: 8px;
     margin-bottom: 8px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
-.order__coffee .order__box .box__item img{
+.box .order__box .box__item img{
     width: 56px;
     border-radius: 5px;
 }
