@@ -225,7 +225,7 @@ body{
 }
 
 .pay .cart h2{
-    margin-left: 250%;
+    padding-left: 150%;
     font-size: 14px;
     color: #FF4500;
 }
