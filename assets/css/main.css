@@ -184,3 +184,53 @@ body{
     font-size: 20px;
     color: #FF4500;
 }
+
+/* css payment */
+
+.order:after{
+    display: block;
+    content: " ";
+    height: 55px;
+    width: 100%;
+}
+
+
+.pay{
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    justify-content: space-between;
+    margin-top: 15px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.pay .cart{
+    height: 40px;
+    display: flex;
+    line-height: 40px;
+    padding: 0 8px 0 8px;
+}
+
+.pay .checkout-payment{
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 40px;
+    background-color: #FF4500;
+    color: #ffffff;
+}
+
+.pay .cart h2{
+    margin-left: 250%;
+    font-size: 14px;
+    color: #FF4500;
+}
+
+.pay .checkout-payment h2{
+    font-size: 14px;
+}
