@@ -65,6 +65,10 @@ function getNumberInString(str){
 var plusElement = document.querySelectorAll(".fa-square-plus");
 var minusElement = document.querySelectorAll(".fa-square-minus");
 var numElement = document.querySelectorAll(".count")
+var payElement = document.querySelector(".pay");
+var moneyElement = document.querySelectorAll(".money-item");
+var payMoney = document.querySelector(".pay-money");
+var sumMoney = 0;
 
 function NoneDisplay(Count,index){
     if(Count <= 0){
@@ -73,9 +77,22 @@ function NoneDisplay(Count,index){
     }
 }
 
+function getMoney(str){
+    var temp = "";
+    for(var i = 0; i < str.length - 1; ++i){
+        temp += str[i];
+    }
+    return temp;
+}
+
 for(var i = 0; i < minusElement.length; ++i){
     minusElement[i].style.display = "none";
     numElement[i].style.display = "none";
+}
+
+function convertVND(number){
+    number *= 1000;
+    return number.toLocaleString('vi', {style : 'currency', currency : 'VND'});
 }
 
 for(var i = 0; i < plusElement.length; ++i){
@@ -86,20 +103,32 @@ for(var i = 0; i < plusElement.length; ++i){
         numElement[index-1].textContent = String(++num);
         minusElement[index-1].style.display = "block";
         numElement[index-1].style.display = "block";
-        console.log(index);
-        console.log(Number(numElement[index-1].textContent));
+        var money = parseFloat(getMoney(moneyElement[index-1].textContent));
+        console.log(sumMoney);
+        sumMoney += money;
+        payMoney.textContent = convertVND(sumMoney);
+        payElement.style.display = "flex";
+        // console.log(index);
+        // console.log(Number(numElement[index-1].textContent));
     }
     minusElement[i].onclick = function(e){
         var temp = e.target.id;
         var index = getNumberInString(temp);
         var num = Number(numElement[index-1].textContent);
-        NoneDisplay(--num,index-1);
+        var money = parseFloat(getMoney(moneyElement[index-1].textContent));
+        console.log(sumMoney);
+        sumMoney -= money;
+        payMoney.textContent = convertVND(sumMoney);
+        --num;
         if(num <= 0){
-            num = 1;
+            payElement.style.display = "none";
+            num = 0;
+            sumMoney = 0;
         }
-        numElement[index-1].textContent = String(--num);
-        console.log(index);
-        console.log(Number(numElement[index-1].textContent));
+        numElement[index-1].textContent = String(num);
+        NoneDisplay(num,index-1);
+        // console.log(index);
+        // console.log(Number(numElement[index-1].textContent));
     }
 }
 
