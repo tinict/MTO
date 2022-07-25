@@ -120,7 +120,7 @@ for(var i = 0; i < plusElement.length; ++i){
         sumMoney -= money;
         payMoney.textContent = convertVND(sumMoney);
         --num;
-        if(num <= 0){
+        if(sumMoney <= 0){
             payElement.style.display = "none";
             num = 0;
             sumMoney = 0;
