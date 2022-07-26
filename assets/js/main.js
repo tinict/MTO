@@ -132,6 +132,39 @@ for(var i = 0; i < plusElement.length; ++i){
     }
 }
 
+class TableUser{
+    constructor(id,NameTable){
+        this.id = id;
+        this.NameTable = NameTable;
+    }
+    getNameTable(){
+        return this.NameTable;
+    }
+};
+
+const listTableUser = new Array();
+var UseTable;
+for(var i = 0; i < 18; ++i){
+    UseTable = new TableUser(i,"Bàn " + (i+1));
+    listTableUser.push(UseTable);
+}
+
+console.log(listTableUser);
+
+var managerElement = document.querySelector(".manager__contents");
+var htmls  = listTableUser.map(function(UseTable){
+    return`
+        <div class="table-item">
+            <i class="fa-solid fa-users"></i>
+            <div>
+                <span>${UseTable.getNameTable()}</span>
+            </div>
+        </div>
+    `
+});
+
+managerElement.innerHTML = htmls.join('');
+
 var tableItems = document.querySelectorAll(".table-item");
 var btnChoose = document.querySelector(".background-choose");
 
@@ -145,6 +178,8 @@ for(var i = 0; i < tableItems.length; ++i){
         console.log("true");
     }
 }
+
+
 
 // for(var i = 0; i < plusElement.length; ++i){
 //     plusElement[i].onclick = function(e){
