@@ -132,6 +132,20 @@ for(var i = 0; i < plusElement.length; ++i){
     }
 }
 
+var tableItems = document.querySelectorAll(".table-item");
+var btnChoose = document.querySelector(".background-choose");
+
+btnChoose.onmouseup = function(){
+    btnChoose.style.display = "none";
+}
+
+for(var i = 0; i < tableItems.length; ++i){
+    tableItems[i].onclick = function(e){
+        btnChoose.style.display = "block";
+        console.log("true");
+    }
+}
+
 // for(var i = 0; i < plusElement.length; ++i){
 //     plusElement[i].onclick = function(e){
 //         numElement[i]. = function(e){
