@@ -69,6 +69,9 @@ var payElement = document.querySelector(".pay");
 var moneyElement = document.querySelectorAll(".money-item");
 var payMoney = document.querySelector(".pay-money");
 var sumMoney = 0;
+var boxItemElement = document.querySelectorAll(".box__item");
+var cartsElement = document.querySelectorAll(".NameProduct");
+var CartBoxElement = document.querySelector(".cart__box");
 
 function NoneDisplay(Count,index){
     if(Count <= 0){
@@ -95,6 +98,30 @@ function convertVND(number){
     return number.toLocaleString('vi', {style : 'currency', currency : 'VND'});
 }
 
+class Cart{
+    constructor(id,NameProduct ,cost){
+        this.id = id;
+        this.NameProduct = NameProduct;
+        this.cost = cost;
+    }
+    getNameProduct(){
+        return this.NameProduct;
+    }
+    getCost(){
+        return this.cost;
+    }
+};
+
+const Carts = new Array();
+
+function isNameProduct(nameProduct){
+    for(var i = 0; i < Carts.length; ++i){
+        if(nameProduct === Carts[i].getNameProduct())
+            return true;
+    }
+    return false;
+};
+
 for(var i = 0; i < plusElement.length; ++i){
     plusElement[i].onclick = function(e){
         var temp = e.target.id;
@@ -104,13 +131,41 @@ for(var i = 0; i < plusElement.length; ++i){
         minusElement[index-1].style.display = "block";
         numElement[index-1].style.display = "block";
         var money = parseFloat(getMoney(moneyElement[index-1].textContent));
-        console.log(sumMoney);
+        // console.log(sumMoney);
         sumMoney += money;
         payMoney.textContent = convertVND(sumMoney);
         payElement.style.display = "flex";
+        //console.log(boxItemElement[index-1].textContent);
+        if(isNameProduct(cartsElement[index-1].textContent) === false){
+            var addCart = new Cart(1, cartsElement[index-1].textContent, moneyElement[index-1].textContent);
+            Carts.push(addCart);
+            var addCode = Carts.map(function(addCart){
+                return `
+                        <div class="box__item">
+                            <img src="assets/img/Business-Coffee-opened-1.png" alt="">
+                            <div class="box__contents">
+                                <span class="NameProduct">${addCart.getNameProduct()}</span>
+                                <div class="content__container">
+                                     <div class="order__cost">
+                                        <span class="money-item">${addCart.getCost()}</span>
+                                        <div class="groupButton">
+                                            <i class="fa-solid fa-circle-minus"></i>
+                                            <span class="count count-cart">${num}</span>
+                                            <i class="fa-solid fa-circle-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
+            });
+           CartBoxElement.innerHTML = addCode.join('');
+        };
+        // console.log(isNameProduct(addCart.getNameProduct()));
+        // console.log(Carts[0].getNameProduct());
         // console.log(index);
         // console.log(Number(numElement[index-1].textContent));
     }
+
     minusElement[i].onclick = function(e){
         var temp = e.target.id;
         var index = getNumberInString(temp);
@@ -131,6 +186,8 @@ for(var i = 0; i < plusElement.length; ++i){
         // console.log(Number(numElement[index-1].textContent));
     }
 }
+
+console.log(plusElement);
 
 class TableUser{
     constructor(id,NameTable){
@@ -179,6 +236,33 @@ for(var i = 0; i < tableItems.length; ++i){
     }
 }
 
+var cartElement = document.querySelector(".cart");
+var bgrcartElement = document.querySelector(".bgrcart");
+var plusCartElement = document.querySelectorAll(".fa-circle-minus");
+var btnXmart = document.querySelector(".fa-xmark");
+
+btnXmart.onclick = function() { 
+    bgrcartElement.style.display = "none";
+};
+
+console.log(plusCartElement);
+for(var i = 0; i < plusCartElement.length; ++i){
+    plusCartElement[i].onclick = function(e){
+        console.log(e.target);
+    }
+}
+
+cartElement.onclick = function(){   
+    bgrcartElement.style.display = "block";
+}
+
+bgrcartElement.onclick = function(e){
+    bgrcartElement.style.display = "none";
+}
+
+document.querySelector(".cart-order").onclick = function(e){
+    e.stopPropagation();
+}
 
 
 // for(var i = 0; i < plusElement.length; ++i){
